@@ -9,28 +9,23 @@ TOKEN = os.getenv('TOKEN')
 bot = telebot.AsyncTeleBot(TOKEN)
 
 text_messages = {
-    'start':
-        '''
-        Hi! I am AIAdvisor bot.
-        ''',
+    'start': 'Hi! I am AIAdvisor bot.\nUse /help command to see what I can.\nUse /go command to get prices.',
 
     'info':
-        '''
-        You can ask me about USD/RUB and EUR/RUB currency pairs and BTC/USD, ETH/USD cryptocurrencies.\n
-        Use the following commands:\n
-        /help - shows help;\n
-        /go - shows prices.
-        ''',
+    '''
+    You can ask me about USD/RUB and EUR/RUB currency pairs and BTC/USD, ETH/USD cryptocurrencies.\
+    \nUse the following commands:\
+    \n/help - shows help;\
+    \n/go - shows prices.
+    ''',
 
-    'go':
-        'USD/RUB: {:>12}\nEUR/RUB: {:>12}\nBTC/USD: {:>12}\nETH/USD: {:>12}'
+    'go': 'USD/RUB: {:>12}\nEUR/RUB: {:>12}\nBTC/USD: {:>12}\nETH/USD: {:>12}'
 }
 
 
 @bot.message_handler(commands=['start'])
 def on_start(message):
-    bot.reply_to(message, text_messages['start'])
-    on_info(message)
+    bot.send_message(message.chat.id, text_messages['start'])
 
 
 @bot.message_handler(commands=['info', 'help'])
