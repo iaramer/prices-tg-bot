@@ -1,8 +1,11 @@
 import telebot
 import requests
+import os
+from dotenv import load_dotenv
 
 
-TOKEN = "1861517229:AAHOZ2SLNrI3LpC9LhQwzNxqwx8fQfnbWHo"
+load_dotenv()
+TOKEN = os.getenv('TOKEN')
 bot = telebot.AsyncTeleBot(TOKEN)
 
 text_messages = {
