@@ -3,6 +3,12 @@ import requests
 import os
 from dotenv import load_dotenv
 
+"""
+Links:
+https://www.toptal.com/python/telegram-bot-tutorial-python
+https://github.com/eternnoir/pyTelegramBotAPI/tree/master/examples
+https://tproger.ru/translations/telegram-bot-create-and-deploy/ - outdated
+"""
 
 load_dotenv()
 TOKEN = os.getenv('TOKEN')
